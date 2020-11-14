@@ -25,3 +25,14 @@
   copy:
     src: ../files/.vmware/
     dest: ~/.vmware
+
+- name: Ask VDI url/IP
+  pause:
+    prompt: "Inserire l'URL oppure l'indirizzo IP del server VDI"
+  register: vdi_url_ip
+
+- name: Set VDI irl/ip
+  lineinfile:
+    path: ~/.vmware/view-preferences
+    regex: view.defaultBroker = ''
+    line: view.defaultBroker = '{{ vdi_url_ip }}'
