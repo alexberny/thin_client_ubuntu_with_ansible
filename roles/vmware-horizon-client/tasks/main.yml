@@ -1,0 +1,10 @@
+- name: Check client is already download
+  stat:
+    path: ~/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
+  register: stat_client
+
+- name: Get horizon client
+  get_url:
+    url: https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
+    dest: ~/.
+  when: not stat_client.stat.exists
