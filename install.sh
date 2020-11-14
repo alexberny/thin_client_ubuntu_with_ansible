@@ -2,7 +2,7 @@
 #
 # Instal Ansible module
 #
-# curl -sL  https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | sudo bash
+# curl -sL https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | sudo bash
 #
 # wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O - | sudo bash
 
@@ -18,6 +18,9 @@ sudo apt install git
 
 # install ansible
 sudo apt install ansible
+
+# install ansible galaxy dep
+ansible-galaxy collection install community.general
 
 # get ansible script
 git clone https://github.com/alexberny/thin_client_ubunut_with_ansible.git
