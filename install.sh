@@ -21,4 +21,5 @@ sudo apt install ansible
 # get ansible script
 git clone https://github.com/alexberny/thin_client_ubunut_with_ansible.git
 
+# lunch ansible playbook
 ansible-playbook thin_client_ubunut_with_ansible/thinclient-setup.yml --ask-become-pass
