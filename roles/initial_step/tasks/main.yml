@@ -28,3 +28,12 @@
       - vino
       - sane
       - vim
+
+- name: Disable Cups service
+  service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: false
+  loop:
+    - cups
+    - cups-browsed
