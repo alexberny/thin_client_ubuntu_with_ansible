@@ -10,6 +10,7 @@
   when: not stat_client.stat.exists
 
 - name: Create link needed
+  become: true
   file:
     src: /usr/lib/x86_64-linux-gnu/{{ item.src }}
     dest: /usr/lib/x86_64-linux-gnu/{{ item.dst}}
