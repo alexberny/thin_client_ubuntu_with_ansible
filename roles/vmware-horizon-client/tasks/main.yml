@@ -14,7 +14,7 @@
   become: true
   file:
     src: /usr/lib/x86_64-linux-gnu/{{ item.src }}
-    dest: /usr/lib/x86_64-linux-gnu/{{ item.dst}}
+    dest: /usr/lib/x86_64-linux-gnu/{{ item.dst }}
     state: link
   loop:
     - { src: libgstreamer-1.0.so.0, dst: libgstreamer-0.10.so.0 }
