@@ -2,8 +2,9 @@
 
 Install a Vmware Thin Client based on Ubuntu
 
-`curl -sL  https://github.com/alexberny/thin_client_ubunut_with_ansible/blob/main/install.sh | sudo bash`
+`curl -sL  https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | sudo bash`
 
 or
 
-`wget -O  https://github.com/alexberny/thin_client_ubunut_with_ansible/blob/main/install.sh | sudo bash`
+`wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O - | sudo bash`
+
