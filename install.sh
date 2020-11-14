@@ -2,9 +2,9 @@
 #
 # Instal Ansible module
 #
-# curl -sL https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | sudo bash
+# curl -sL https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | bash
 #
-# wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O - | sudo bash
+# wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O - | bash
 
 set -x
 set -e
@@ -19,11 +19,20 @@ sudo apt install git
 # install ansible
 sudo apt install ansible
 
+# install psutil
+sudo apt install python3-psutil
+
 # install ansible galaxy dep
 ansible-galaxy collection install community.general
 
 # get ansible script
-git clone https://github.com/alexberny/thin_client_ubunut_with_ansible.git
+if [!-d thin_client_ubunut_with_ansible ]
+    git clone https://github.com/alexberny/thin_client_ubunut_with_ansible.git
+else
+    cd thin_client_ubunut_with_ansible
+    git pull
+    cd ~
+fi
 
 # lunch ansible playbook
 ansible-playbook thin_client_ubunut_with_ansible/thinclient-setup.yml --ask-become-pass
