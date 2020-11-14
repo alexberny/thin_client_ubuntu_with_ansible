@@ -3,10 +3,12 @@
     var: ansible_facts
 
 - name: Run the equivalent of "apt-get update" as a separate step
+  become: true
   apt:
     update_cache: yes
 
 - name: Update all
+  become: true
   apt:
     name: "*"
     state: latest
