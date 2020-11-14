@@ -20,3 +20,8 @@
     - { src: libgstreamer-1.0.so.0, dst: libgstreamer-0.10.so.0 }
     - { src: libgstapp-1.0.so.0, dst: libgstapp-0.10.so.0 }
     - { src: libgstbase-1.0.so.0, dst: libgstbase-0.10.so.0 }
+
+- name: Create Wmware config directory
+  copy:
+    src: ../files/.vmware/
+    dest: ~/.vmware
