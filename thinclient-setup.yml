@@ -3,3 +3,4 @@
   connection: local
   roles:
     - initial_step
+    - vmware-horizon-client
