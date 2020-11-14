@@ -7,6 +7,7 @@
   get_url:
     url: https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
     dest: ~/.
+    mode: a+x
   when: not stat_client.stat.exists
 
 - name: Create link needed
@@ -16,6 +17,6 @@
     dest: /usr/lib/x86_64-linux-gnu/{{ item.dst}}
     state: link
   loop:
-    - { src: libgstreamer-1.0.so.0, dst: libgstreamer-0.10.so.0}
-    - { src: libgstapp-1.0.so.0, dst: libgstapp-0.10.so.0}
-    - { src: libgstbase-1.0.so.0, dst: libgstbase-0.10.so.0}
+    - { src: libgstreamer-1.0.so.0, dst: libgstreamer-0.10.so.0 }
+    - { src: libgstapp-1.0.so.0, dst: libgstapp-0.10.so.0 }
+    - { src: libgstbase-1.0.so.0, dst: libgstbase-0.10.so.0 }
