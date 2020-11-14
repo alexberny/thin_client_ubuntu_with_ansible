@@ -26,7 +26,7 @@ sudo apt install python3-psutil
 ansible-galaxy collection install community.general
 
 # get ansible script
-if [!-d thin_client_ubunut_with_ansible ]; then
+if [ ! -d thin_client_ubunut_with_ansible ]; then
     git clone https://github.com/alexberny/thin_client_ubunut_with_ansible.git
 else
     cd thin_client_ubunut_with_ansible
