@@ -27,3 +27,4 @@
       - openssh-server
       - vino
       - sane
+      - vim
