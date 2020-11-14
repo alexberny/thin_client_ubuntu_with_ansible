@@ -30,6 +30,7 @@
       - vim
 
 - name: Disable Cups service
+  become: true
   service:
     name: "{{ item }}"
     state: stopped
