@@ -1,3 +1,12 @@
 - name: Print all available facts
   ansible.builtin.debug:
     var: ansible_facts
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes
+
+- name: Update all
+  apt:
+    name: "*"
+    state: latest
