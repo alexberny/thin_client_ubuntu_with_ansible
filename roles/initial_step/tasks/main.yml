@@ -38,3 +38,25 @@
   loop:
     - cups
     - cups-browsed
+
+- name: Dconf gnome-session-properties
+  community.general.dconf:
+    key: "{{ item }}"
+    state: absent
+  loop:
+    - org/gnome/desktop/notifications/application/gnome-session-properties
+    - org/gnome/desktop/notifications/application/org-gnome-calculator
+    - org/gnome/desktop/notifications/application/org-gnome-tweaks
+    - org/gnome/desktop/notifications/application/software-properties-gtk
+    - org/gnome/desktop/notifications/application/software-properties-livepatch
+    - org/gnome/desktop/screensaver
+
+- name: Dconf gnome-session-properties org/gnome/desktop/notifications/application/gnome-session-properties
+  community.general.dconf:
+    key: "org/gnome/desktop/notifications/application/gnome-session-properties"
+    value: true
+
+- name: Dconf vino /org/gnome/desktop/remote-access/require-encryption
+  dconf:
+    key: '/org/gnome/desktop/remote-access/require-encryption'
+    value: 'false'  
