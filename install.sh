@@ -2,8 +2,9 @@
 #
 # Instal Ansible module
 #
-# curl -sL  https://github.com/alexberny/install.sh | sudo bash
+# curl -sL  https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | sudo bash
 #
+# wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O - | sudo bash
 
 set -x
 set -e
