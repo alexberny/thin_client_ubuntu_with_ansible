@@ -7,8 +7,22 @@
   apt:
     update_cache: yes
 
-- name: Update all
+- name: Update all software
   become: true
   apt:
     name: "*"
     state: latest
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+
+- name: Install necessary software
+  become: true
+  apt:
+    pkg:
+      - git
+      - ansible
+      - openssh-server
+      - vino
+      - sane
