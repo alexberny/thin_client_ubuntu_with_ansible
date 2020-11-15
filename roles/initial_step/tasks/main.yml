@@ -28,6 +28,7 @@
       - vino
       - sane
       - vim
+      - libvdpau-va-gl1
 
 - name: Disable Cups service
   become: true
@@ -59,4 +60,15 @@
 - name: Dconf vino /org/gnome/desktop/remote-access/require-encryption
   dconf:
     key: '/org/gnome/desktop/remote-access/require-encryption'
+    value: "false"
+
+- name: Dconf locksreen /org/gnome/settings-daemon/plugins/power/idle-delay
+  dconf:
+    key: '/org/gnome/settings-daemon/plugins/power/idle-delay'
+    value: "uint32 0"
+
+
+- name: Dconf disable notification /org/gnome/desktop/notifications/show-banners
+  dconf:
+    key: '/org/gnome/desktop/notifications/show-banners'
     value: "false"
