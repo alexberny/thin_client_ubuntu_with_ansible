@@ -44,12 +44,12 @@
     key: "{{ item }}"
     state: absent
   loop:
-    - org/gnome/desktop/notifications/application/gnome-session-properties
-    - org/gnome/desktop/notifications/application/org-gnome-calculator
-    - org/gnome/desktop/notifications/application/org-gnome-tweaks
-    - org/gnome/desktop/notifications/application/software-properties-gtk
-    - org/gnome/desktop/notifications/application/software-properties-livepatch
-    - org/gnome/desktop/screensaver
+    - /org/gnome/desktop/notifications/application/gnome-session-properties
+    - /org/gnome/desktop/notifications/application/org-gnome-calculator
+    - /org/gnome/desktop/notifications/application/org-gnome-tweaks
+    - /org/gnome/desktop/notifications/application/software-properties-gtk
+    - /org/gnome/desktop/notifications/application/software-properties-livepatch
+    - /org/gnome/desktop/screensaver
 
 - name: Dconf gnome-session-properties org/gnome/desktop/notifications/application/gnome-session-properties
   community.general.dconf:
