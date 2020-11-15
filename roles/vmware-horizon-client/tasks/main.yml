@@ -36,3 +36,9 @@
     path: ~/.vmware/view-preferences
     regex: view.defaultBroker = ''
     line: view.defaultBroker = '{{ vdi_url_ip.user_input }}'
+
+- name: Run VmWare installation
+  become: true
+  shell: ~/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
+  args:
+    executable: /bin/bash
