@@ -2,9 +2,10 @@
 #
 # Instal Ansible module
 #
-# curl -sL https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh | bash
+# curl -sL https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -o install.sh && bash install.sh && rm install.sh
 #
-# wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O - | bash
+# wget https://raw.githubusercontent.com/alexberny/thin_client_ubunut_with_ansible/main/install.sh -O install.sh && bash install.sh && rm install.sh
+
 
 set -x
 set -e
