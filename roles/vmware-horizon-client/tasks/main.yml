@@ -31,7 +31,7 @@
     prompt: "Inserire l'URL oppure l'indirizzo IP del server VDI"
   register: vdi_url_ip
 
-- name: Set VDI irl/ip
+- name: Set VDI url/ip
   lineinfile:
     path: ~/.vmware/view-preferences
     regex: view.defaultBroker = ''
