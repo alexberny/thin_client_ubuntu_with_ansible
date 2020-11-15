@@ -35,4 +35,4 @@
   lineinfile:
     path: ~/.vmware/view-preferences
     regex: view.defaultBroker = ''
-    line: view.defaultBroker = '{{ vdi_url_ip }}'
+    line: view.defaultBroker = '{{ vdi_url_ip.user_input }}'
