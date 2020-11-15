@@ -39,6 +39,6 @@
 
 - name: Run VmWare installation
   become: true
-  shell: ~/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
+  shell: "{{ ansible_facts['env']['HOME'] }}/VMware-Horizon-Client-5.5.0-16946361.x64.bundle"
   args:
     executable: /bin/bash
