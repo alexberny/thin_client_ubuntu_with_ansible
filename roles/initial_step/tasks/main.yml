@@ -62,9 +62,9 @@
     key: '/org/gnome/desktop/remote-access/require-encryption'
     value: "false"
 
-- name: Dconf locksreen /org/gnome/settings-daemon/plugins/power/idle-delay
+- name: Dconf locksreen /org/gnome/desktop/session/idle-delay
   dconf:
-    key: '/org/gnome/settings-daemon/plugins/power/idle-delay'
+    key: '/org/gnome/desktop/session/idle-delay'
     value: "uint32 0"
 
 
