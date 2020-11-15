@@ -54,9 +54,9 @@
 - name: Dconf gnome-session-properties org/gnome/desktop/notifications/application/gnome-session-properties
   community.general.dconf:
     key: "/org/gnome/desktop/notifications/application/gnome-session-properties"
-    value: true
+    value: "true"
 
 - name: Dconf vino /org/gnome/desktop/remote-access/require-encryption
   dconf:
     key: '/org/gnome/desktop/remote-access/require-encryption'
-    value: 'false'  
+    value: "false"
