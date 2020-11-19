@@ -29,6 +29,7 @@
       - sane
       - vim
       - libvdpau-va-gl1
+      - zenity
 
 - name: Disable Cups service
   become: true
@@ -72,3 +73,13 @@
   dconf:
     key: '/org/gnome/desktop/notifications/show-banners'
     value: "false"
+
+- name: Get PC manufacturer
+  become: true
+  shell: dmidecode -s system-manufacturer
+  register: pc_manufacturer
+
+- name: Get PC model
+  become: true
+  shell: dmidecode -s system-product-name
+  register: pc_model
