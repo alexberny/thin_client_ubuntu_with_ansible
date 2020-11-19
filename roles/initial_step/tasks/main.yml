@@ -29,7 +29,6 @@
       - sane
       - vim
       - libvdpau-va-gl1
-      - zenity
 
 - name: Disable Cups service
   become: true
