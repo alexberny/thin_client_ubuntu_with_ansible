@@ -1,11 +1,18 @@
+- name: Get VmWare url
+  pause:
+    prompt: "Inserire l'URL per scaricare VmWareHorizon"
+  register: vmwware_url
+  until: vmwware_url | match("https://*.vmware.com/software/view/viewclients/*/VMware-Horizon-Client*.x64.bundle") | success
+
+
 - name: Check client is already download
   stat:
-    path: ~/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
+    path: ~/{{ vmwware_url | basename }}
   register: stat_client
 
 - name: Get horizon client
   get_url:
-    url: https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.0-16946361.x64.bundle
+    url: vmwware_url
     dest: ~/.
     mode: a+x
   when: not stat_client.stat.exists
@@ -30,6 +37,7 @@
   pause:
     prompt: "Inserire l'URL oppure l'indirizzo IP del server VDI"
   register: vdi_url_ip
+  until: vdi_url_ip | success
 
 - name: Set VDI url/ip
   lineinfile:

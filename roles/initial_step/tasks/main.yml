@@ -30,14 +30,13 @@
       - vim
       - libvdpau-va-gl1
 
-- name: Disable Cups service
+- name: Disable Cups-browsed service
   become: true
   service:
     name: "{{ item }}"
     state: stopped
     enabled: false
   loop:
-    - cups
     - cups-browsed
 
 - name: Dconf gnome-session-properties
@@ -66,7 +65,6 @@
   dconf:
     key: '/org/gnome/desktop/session/idle-delay'
     value: "uint32 0"
-
 
 - name: Dconf disable notification /org/gnome/desktop/notifications/show-banners
   dconf:
