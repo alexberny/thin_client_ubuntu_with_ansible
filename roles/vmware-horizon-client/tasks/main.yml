@@ -2,7 +2,7 @@
   pause:
     prompt: "Inserire l'URL per scaricare VmWareHorizon"
   register: vmwware_url
-  until: vmwware_url | match("https://*.vmware.com/software/view/viewclients/*/VMware-Horizon-Client*.x64.bundle") | success
+  until: vmwware_url | match("https://*.vmware.com/software/view/viewclients/*/VMware-Horizon-Client*.x64.bundle")
 
 
 - name: Check client is already download
