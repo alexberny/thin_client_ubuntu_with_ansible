@@ -44,6 +44,10 @@
     regex: view.defaultBroker = ''
     line: view.defaultBroker = '{{ vdi_url_ip.user_input }}'
 
+- name: Test Vmware is already installed
+  shell: command -v vmware-view > /dev/null 2>&1
+  register: vmware_installed
+
 - name: Run VmWare installation
   become: true
   shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }}"
