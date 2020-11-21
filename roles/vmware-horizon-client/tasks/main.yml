@@ -36,7 +36,7 @@
   pause:
     prompt: "Inserire l'URL oppure l'indirizzo IP del server VDI"
   register: vdi_url_ip
-  until: (vdi_url_ip.user_input is undefinied ) or ( vdi_url_ip.user_input | lenght == 0 )
+  until: (vdi_url_ip.user_input is not definied ) or ( vdi_url_ip.user_input | lenght == 0 )
 
 - name: Set VDI url/ip
   lineinfile:
