@@ -11,7 +11,7 @@
 
 - name: Get horizon client
   get_url:
-    url: vmware_url.user_input
+    url: i{{ vmware_url.user_input }}
     dest: ~/.
     mode: a+x
   when: not stat_client.stat.exists

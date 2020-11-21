@@ -80,3 +80,7 @@
   become: true
   shell: dmidecode -s system-product-name
   register: pc_model
+
+- name: pc model
+  debug:
+   msg: "{{ pc_model }} {{ pc_manufacturer }}"
