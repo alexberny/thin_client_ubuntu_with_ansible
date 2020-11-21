@@ -1,13 +1,12 @@
 - name: Get VmWare url
   pause:
     prompt: "Inserire l'URL per scaricare VmWareHorizon"
-  register: vmwware_url
-  until: vmwware_url is match("https://.*.vmware.com/software/view/viewclients/.*/VMware-Horizon-Client.*.x64.bundle")
-
+  register: vmware_url
+  until: vmware_url.user_input is match("https://.*.vmware.com/software/view/viewclients/.*/VMware-Horizon-Client.*.x64.bundle")
 
 - name: Check client is already download
   stat:
-    path: ~/{{ vmwware_url | basename }}
+    path: ~/{{ vmware_url.user_input | basename }}
   register: stat_client
 
 - name: Get horizon client
