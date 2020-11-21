@@ -46,6 +46,6 @@
 
 - name: Run VmWare installation
   become: true
-  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }}
+  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }}"
   args:
     executable: /bin/bash
