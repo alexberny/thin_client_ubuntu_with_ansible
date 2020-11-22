@@ -44,9 +44,19 @@
     regex: view.defaultBroker = ''
     line: view.defaultBroker = '{{ vdi_url_ip.user_input }}'
 
-- name: Test Vmware is already installed
-  shell: command -v vmware-view > /dev/null 2>&1
-  register: vmware_installed
+# - name: Test Vmware is already installed
+#   shell: command -v vmware-view > /dev/null 2>&1
+#   register: vmware_installed
+#   ignore_errors: true
+
+- name: Get current version of Vmware if installed
+  become: true
+  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -l | grep vmware-horizon-client"
+  args:
+    executable: /bin/bash
+  register: vmware_version
+  ignore_errors: true
+
 
 - name: Run VmWare installation
   become: true
