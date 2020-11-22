@@ -51,7 +51,7 @@
 
 - name: Get current version of Vmware if installed
   become: true
-  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -l | grep vmware-horizon-client"
+  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -l | grep vmware-horizon-client | awk '{print $2}'" 
   args:
     executable: /bin/bash
   register: vmware_version
