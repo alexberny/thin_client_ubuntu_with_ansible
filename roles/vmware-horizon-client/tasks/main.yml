@@ -59,7 +59,7 @@
 
 - name: debug
   debug:
-    msg: "vmware_version.stdout_lines[1] - ( vmware_version.stdout_lines[1] not in {{ vmware_url.user_input | basename }})  " 
+    msg: "{{ vmware_version.stdout_lines[1] }} - ( {{ vmware_version.stdout_lines[1] }} not in {{ vmware_url.user_input | basename }})  " 
 
 - name: Remove current Vmware client if version is prior to downloaded
   become: true
