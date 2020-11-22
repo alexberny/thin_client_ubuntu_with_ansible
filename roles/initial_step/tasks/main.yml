@@ -32,7 +32,7 @@
 
 - name: Disable Cups-browsed service
   become: true
-  service:
+  systemd:
     name: "{{ item }}"
     state: stopped
     enabled: false
@@ -71,6 +71,56 @@
     key: '/org/gnome/desktop/notifications/show-banners'
     value: "false"
 
+- name: Dconf sharing org.gnome.settings-daemon.plugins.sharing.active
+  dconf:
+    key: 'org.gnome.settings-daemon.plugins.sharing.active'
+    value: "true"
+
+
+- name: Dconf vino server /org/gnome/desktop/remote-desktop/require-encription
+  dconf:
+    key: '/org/gnome/desktop/remote-desktop/require-encription'
+    value: "false"
+
+- name: Dconf vino server /org/gnome/desktop/remote-desktop/prompt-enabled
+  dconf:
+    key: '/org/gnome/desktop/remote-desktop/prompt-enabled'
+    value: "false"
+
+- name: Dconf vino server /org/gnome/desktop/remote-desktop/authentication-methods
+  dconf:
+    key: '/org/gnome/desktop/remote-desktop/authentication-methods'
+    value: "['vnc']"
+
+- name: Ask Vino password
+  pause:
+    prompt: "Inserire la password del server Vino"
+  register: vino_password
+  until: ( vino_password.user_input | length > 0 )
+
+- name: Dconf vino server /org/gnome/desktop/remote-desktop/vnc-password
+  dconf:
+    key: '/org/gnome/desktop/remote-desktop/vnc-password'
+    value: "{{ vino_password | b64encode }}"
+
+- name: Copy user script
+  copy:
+    src: ../files/user.sh
+    dest: ./user.sh
+    mode: u+rwx,g+r,o+r
+  
+- name: Copy start script
+  copy:
+    src: ../files/autorun_user.service
+    dest: ~/.config/systemd/user
+
+- name: Enable user start script
+  systemd:
+    name: autorun_user
+    scope: user
+    state: started
+    enabled: yes
+
 - name: Get PC manufacturer
   become: true
   shell: dmidecode -s system-manufacturer
@@ -84,3 +134,5 @@
 - name: pc model
   debug:
    msg: "{{ pc_model }} {{ pc_manufacturer }}"
+
+
