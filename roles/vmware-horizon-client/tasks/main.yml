@@ -49,25 +49,24 @@
 #   register: vmware_installed
 #   ignore_errors: true
 
-- name: Get current version of Vmware if installed
-  become: true
-  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -l | grep vmware-horizon-client | awk '{print $2}'" 
-  args:
-    executable: /bin/bash
-  register: vmware_version
-  ignore_errors: true
+# - name: Get current version of Vmware if installed
+#   become: true
+#   shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -l | grep vmware-horizon-client | awk '{print $2}'" 
+#   args:
+#     executable: /bin/bash
+#   register: vmware_version
+#   ignore_errors: true
 
-- name: debug
-  debug:
-    msg: "{{ not vmware_url.user_input is search(vmware_version.stdout_lines.0) }}" 
+# - name: debug
+#   debug:
+#     msg: "{{ not vmware_url.user_input is search(vmware_version.stdout_lines.0) }}" 
 
-- name: Remove current Vmware client if version is prior to downloaded
-  become: true
-  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -u vmware-horizon-client"
-  args:
-    executable: /bin/bash
-  #when: (vmware_version.stdout | length > 0) #and ( vmware_version.stdout_lines.0 not in {{ vmware_url.user_input | basename }})
-  when: ( not vmware_url.user_input is search(vmware_version.stdout_lines.0))
+# - name: Remove current Vmware client if version is prior to downloaded
+#   become: true
+#   shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -u vmware-horizon-client"
+#   args:
+#     executable: /bin/bash
+#   when: (vmware_version.stdout | length > 0) and ( not vmware_url.user_input is search(vmware_version.stdout_lines.0))
 
 - name: Run VmWare installation
   become: true
