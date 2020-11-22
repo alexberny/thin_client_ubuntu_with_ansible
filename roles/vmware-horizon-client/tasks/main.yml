@@ -57,6 +57,17 @@
   register: vmware_version
   ignore_errors: true
 
+- name: debug
+  debug:
+    msg: "vmware_version.stdout_lines[1] - ( vmware_version.stdout_lines[1] not in {{ vmware_url.user_input | basename }})  " 
+
+- name: Remove current Vmware client if version is prior to downloaded
+  become: true
+  shell: "{{ ansible_facts['env']['HOME'] }}/{{ vmware_url.user_input | basename }} -u vmware-horizon-client"
+  args:
+    executable: /bin/bash
+  when: (vmware_version.stdout_lines | length > 0) and ( vmware_version.stdout_lines[1] not in {{ vmware_url.user_input | basename }})
+
 
 - name: Run VmWare installation
   become: true
