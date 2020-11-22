@@ -59,7 +59,7 @@
 
 - name: debug
   debug:
-    msg: "{{ vmware_version.stdout_lines }}" 
+    msg: "{{ vmware_version.stdout_lines.0 }}" 
 
 - name: Remove current Vmware client if version is prior to downloaded
   become: true
