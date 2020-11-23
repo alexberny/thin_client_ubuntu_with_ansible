@@ -30,6 +30,11 @@
       - vim
       - libvdpau-va-gl1
 
+- name: Set default hostname
+  become: true
+  hostname:
+    name: thin
+
 - name: Disable Cups-browsed service
   become: true
   systemd:
