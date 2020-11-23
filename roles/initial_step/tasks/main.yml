@@ -127,7 +127,7 @@
 
 - name: Enable user start script
   systemd:
-    name: autorun_user
+    name: autorun_user.service
     scope: user
     state: started
     enabled: yes
