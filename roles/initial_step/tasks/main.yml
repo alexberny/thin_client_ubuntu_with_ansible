@@ -106,7 +106,7 @@
 - name: Dconf vino server /org/gnome/desktop/remote-access/vnc-password
   dconf:
     key: '/org/gnome/desktop/remote-access/vnc-password'
-    value: "{{ vino_password | b64encode }}"
+    value: "'{{ vino_password | b64encode }}'"
 
 - name: Copy user script
   copy:
