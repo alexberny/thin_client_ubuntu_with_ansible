@@ -1,7 +1,7 @@
 [Unit]
 Description=Autorun script on login
 [Service]
-ExecStart=~/user.sh
+ExecStart=/home/user/user.sh
 Restart=always
 RestartSec=3
 
