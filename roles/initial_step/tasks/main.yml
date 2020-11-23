@@ -114,10 +114,15 @@
     dest: ./user.sh
     mode: u+rwx,g+r,o+r
   
+- name: Create .config/systemd/user directory if not exist
+  file:
+    path: .config/systemd/user
+    state: directory 
+
 - name: Copy start script
   copy:
     src: ../files/autorun_user.service
-    dest: ~/.config/systemd/user
+    dest: .config/systemd/user
 
 - name: Enable user start script
   systemd:
