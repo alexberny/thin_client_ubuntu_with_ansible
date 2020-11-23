@@ -103,10 +103,6 @@
   register: vino_password
   until: ( vino_password.user_input | length > 0 )
 
-- name: debug
-  debug:
-    msg: "{{ vino_password.user_input  }} - {{ vino_password.user_input | string | b64encode }} -{{ vino_password.user_input | b64encode }}"
-
 - name: Dconf vino server /org/gnome/desktop/remote-access/vnc-password
   dconf:
     key: '/org/gnome/desktop/remote-access/vnc-password'
