@@ -105,7 +105,7 @@
 
 - name: debug
   debug:
-    msg: "'{{ vino_password | b64encode }}'"
+    msg: "{{ vino_password  }} - {{ vino_password | string | b64encode }} -{{ vino_password | b64encode }}"
 
 - name: Dconf vino server /org/gnome/desktop/remote-access/vnc-password
   dconf:
