@@ -82,19 +82,19 @@
     value: "true"
 
 
-- name: Dconf vino server /org/gnome/desktop/remote-desktop/require-encription
+- name: Dconf vino server /org/gnome/desktop/remote-access/require-encription
   dconf:
-    key: '/org/gnome/desktop/remote-desktop/require-encription'
+    key: '/org/gnome/desktop/remote-access/require-encription'
     value: "false"
 
-- name: Dconf vino server /org/gnome/desktop/remote-desktop/prompt-enabled
+- name: Dconf vino server /org/gnome/desktop/remote-access/prompt-enabled
   dconf:
-    key: '/org/gnome/desktop/remote-desktop/prompt-enabled'
+    key: '/org/gnome/desktop/remote-access/prompt-enabled'
     value: "false"
 
-- name: Dconf vino server /org/gnome/desktop/remote-desktop/authentication-methods
+- name: Dconf vino server /org/gnome/desktop/remote-access/authentication-methods
   dconf:
-    key: '/org/gnome/desktop/remote-desktop/authentication-methods'
+    key: '/org/gnome/desktop/remote-access/authentication-methods'
     value: "['vnc']"
 
 - name: Ask Vino password
@@ -103,9 +103,9 @@
   register: vino_password
   until: ( vino_password.user_input | length > 0 )
 
-- name: Dconf vino server /org/gnome/desktop/remote-desktop/vnc-password
+- name: Dconf vino server /org/gnome/desktop/remote-access/vnc-password
   dconf:
-    key: '/org/gnome/desktop/remote-desktop/vnc-password'
+    key: '/org/gnome/desktop/remote-access/vnc-password'
     value: "{{ vino_password | b64encode }}"
 
 - name: Copy user script
