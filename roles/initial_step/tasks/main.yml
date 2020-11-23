@@ -111,7 +111,7 @@
 - name: Copy user script
   copy:
     src: ../files/user.sh
-    dest: ./user.sh
+    dest: ~/user.sh
     mode: u+rwx,g+r,o+r
   
 - name: Create .config/systemd/user directory if not exist
