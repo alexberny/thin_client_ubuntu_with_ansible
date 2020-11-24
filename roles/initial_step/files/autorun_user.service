@@ -1,5 +1,6 @@
 [Unit]
 Description=Autorun script on login
+After=graphical.target
 [Service]
 ExecStart=/home/user/user.sh
 Restart=always
