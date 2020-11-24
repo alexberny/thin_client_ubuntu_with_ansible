@@ -1,7 +1,7 @@
 [Unit]
 Description=Autorun script on login
-After=graphical.target
 [Service]
+Environment=DISPLAY=:0
 ExecStart=/home/user/user.sh
 Restart=always
 RestartSec=3
