@@ -2,12 +2,12 @@
 
 set +e
 
-a = 0
-showed_alert = 0
-showed_loading = false
+a=0
+showed_alert=0
+showed_loading=false
 
 ##### set new hostname if hostname is set to default
-hostn = $(hostname)
+hostn=$(hostname)
 while [ hostname = "thin" ];
 do
   if zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" 
@@ -19,7 +19,7 @@ do
     zenity --notification --window-icon="info" --text="Nuovo hostname inserito!" 
     sudo reboot
   fi
-fi
+done
 
 while :
 do
@@ -34,19 +34,19 @@ do
     fi
     ((a+=1))
     if [ $a -ge 4 ]
-    do
+    then
       if [ "$showed_alert" = 0 ]
       then
         showed_alert = 1
         zenity --error --width=200 --text "Errore di rete, contattare l'ufficio ICT"
         showed_alert = 0
       fi
-    done
+    fi
   else
     # reset condition
     pkill -9 pqiv
-    showed_loading = false
-    a = 0
+    showed_loading=false
+    a=0
     # set current active interface for vino
     eths_uuid=$(nmcli -t -f uuid,type c s --active | grep 802 | awk -F  ":" '{ print "'\''" $1 "'\''" }' | paste -s -d, -)
     gsettings set org.gnome.settings-daemon.plugins.sharing.service:/org/gnome/settings-daemon/plugins/sharing/vino-server/ enabled-connections "[ $eths_uuid ]"
