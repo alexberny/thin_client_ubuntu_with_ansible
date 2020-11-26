@@ -36,6 +36,7 @@
     name: thin
 
 - name: Replace conf string
+  become: true
   replace:
     path: "{{ item.path }}"
     regexp: "{{ item.regex }}"
