@@ -14,15 +14,15 @@ then
   hostn=$(hostname)
   while [ $hostn = "thin" ];
   do
-    if zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" 
-    then 
-      newhost= $? 
-      #change hostname in /etc/hosts & /etc/hostname
-      sudo sed -i "s/$hostn/$newhost/g" /etc/hosts
-      sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
-      zenity --notification --window-icon="info" --text="Nuovo hostname inserito!" 
-      sudo reboot
-    fi
+    newhost =""
+    while [ -z $newhost ];
+    do
+      newhost=$(zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" --entry-text "$hostn")
+    done
+    sudo sed -i "s/$hostn/$newhost/g" /etc/hosts
+    sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
+    zenity --notification --window-icon="info" --text="Nuovo hostname inserito!" 
+    sudo reboot
   done
 
   while :
