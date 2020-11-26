@@ -38,7 +38,7 @@
 - name: Replace conf string
   replace:
     path: "{{ item.path }}"
-    regex: "{{ item.regex }}"
+    regexp: "{{ item.regex }}"
     replace: "{{ item.replace }}"
   with_items:
     - { path: '/etc/cups/cups-browsed.conf', regex: 'BrowseRemoteProtocols dnssd cups', replace: 'BrowseRemoteProtocols none'}
