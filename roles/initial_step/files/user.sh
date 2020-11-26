@@ -7,12 +7,12 @@ showed_alert=0
 showed_loading=false
 
 # if not exists .maintenance_mode file then execute
-if [ ! -f "~/.maintenance_mode" ]
+if [ ! -f "~/.maintenance_mode" ];
 then
 
   ##### set new hostname if hostname is set to default
   hostn=$(hostname)
-  while [ hostname = "thin" ];
+  while [ $hostn = "thin" ];
   do
     if zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" 
     then 
