@@ -1,0 +1,6 @@
+[Desktop Entry]
+# VERSION=3.36.2
+Name=User
+TryExec=/home/user/user.sh
+Exec=/home/user/user.sh
+Type=Application
