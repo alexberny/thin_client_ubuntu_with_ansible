@@ -41,7 +41,7 @@
     regex: "{{ item.regex }}"
     replace: "{{ item.replace }}"
   with_items:
-    - { path: '/etc/cups/cups-browsed.conf', regex: 'BrowseRemoteProtocols dnssd cups', replace:'BrowseRemoteProtocols none'}
+    - { path: '/etc/cups/cups-browsed.conf', regex: 'BrowseRemoteProtocols dnssd cups', replace: 'BrowseRemoteProtocols none'}
     - { path: '/etc/avahi/avahi-daemon.conf', regex: 'use-ipv[4|6]=yes', replace: 'use-ipv[4|6]=no'}
 
 - name: Restart services
