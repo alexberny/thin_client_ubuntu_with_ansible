@@ -188,5 +188,5 @@
     regex: "{{ item.regex }}"
     line: "{{ item.line }}"
   loop:
-    - {{ regex: "^options snd-hda-intel model=dell-headset-multi$", line: "options snd-hda-intel model=dell-headset-multi"}}
-  when: pc_manufacturer == 'DELL' and pc_model = ''
+    - {{ regex: '^options snd-hda-intel model=dell-headset-multi$', line: 'options snd-hda-intel model=dell-headset-multi'}}
+  when: pc_manufacturer == 'DELL' and pc_model == ''
