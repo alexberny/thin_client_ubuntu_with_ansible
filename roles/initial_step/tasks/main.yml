@@ -102,6 +102,16 @@
     key: '/org/gnome/desktop/remote-access/prompt-enabled'
     value: "false"
 
+- name: Autologin for user
+  become: true
+  replace:
+    path: /etc/gdm3/custom.conf
+    regexp: "{{ item.regex }}"
+    replace: "{{ item.replace }}"
+  with_items:
+    - { regex: '# AutomaticLoginEnabled', replace: 'AutomaticLoginEnabled'}
+    - { regex: '# AutomaticLogin = user1', replace: 'AutomaticLogin = user'}
+
 - name: Dconf vino server /org/gnome/desktop/remote-access/authentication-methods
   dconf:
     key: '/org/gnome/desktop/remote-access/authentication-methods'
@@ -172,4 +182,11 @@
   debug:
    msg: "{{ pc_model }} {{ pc_manufacturer }}"
 
-
+- name: add audio Combo jack for DELL pc
+  lineinfile:
+    path: /etc/modprobe.d/alsa-base.conf
+    regex: "{{ item.regex }}"
+    line: "{{ item.line }}"
+  loop:
+    - {{ regex: "^options snd-hda-intel model=dell-headset-multi$", line: "options snd-hda-intel model=dell-headset-multi"}}
+  when: pc_manufacturer == 'DELL' and pc_model = ''
