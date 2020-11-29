@@ -14,7 +14,7 @@ then
   hostn=$(hostname)
   while [ $hostn = "thin" ];
   do
-    newhost =""
+    newhost=""
     while [ -z $newhost ];
     do
       newhost=$(zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" --entry-text "$hostn")
