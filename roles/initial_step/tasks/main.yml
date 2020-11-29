@@ -109,8 +109,8 @@
     regexp: "{{ item.regex }}"
     replace: "{{ item.replace }}"
   loop:
-    - { regex: '^#  AutomaticLoginEnable', replace: '^AutomaticLoginEnable' }
-    - { regex: '^#  AutomaticLogin = user1', replace: '^AutomaticLogin = user' }
+    - { regex: '^#  AutomaticLoginEnable', replace: 'AutomaticLoginEnable' }
+    - { regex: '^#  AutomaticLogin = user1', replace: 'AutomaticLogin = user' }
 
 - name: Dconf vino server /org/gnome/desktop/remote-access/authentication-methods
   dconf:
