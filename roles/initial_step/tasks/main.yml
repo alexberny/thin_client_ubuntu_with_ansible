@@ -135,7 +135,7 @@
     mode: u+rwx,g+r,o+r
   loop:
     - { src: '../files/user.sh', dst: '~/user.sh'}
-    - { src: '../files/changehostname.sh', dst: '~/changehostname.sh'}
+    # - { src: '../files/changehostname.sh', dst: '~/changehostname.sh'}
   
 # - name: Create .config/systemd/user directory if not exist
 #   file:
