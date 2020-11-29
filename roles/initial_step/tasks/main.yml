@@ -109,8 +109,8 @@
     regexp: "{{ item.regex }}"
     replace: "{{ item.replace }}"
   loop:
-    - { regex: '#  AutomaticLoginEnabled', replace: 'AutomaticLoginEnabled' }
-    - { regex: '#  AutomaticLogin = user1', replace: 'AutomaticLogin = user' }
+    - { regex: '^#  AutomaticLoginEnable = true', replace: '^AutomaticLoginEnable' }
+    - { regex: '^#  AutomaticLogin = user1', replace: '^AutomaticLogin = user' }
 
 - name: Dconf vino server /org/gnome/desktop/remote-access/authentication-methods
   dconf:
@@ -188,5 +188,5 @@
     regex: "{{ item.regex }}"
     line: "{{ item.line }}"
   loop:
-    - { regex: '^options snd-hda-intel model=dell-headset-multi$', line: 'options snd-hda-intel model=dell-headset-multi'}
+    - { regex: '^options snd-hda-intel model=dell-headset-multi$', line: '^options snd-hda-intel model=dell-headset-multi'}
   when: pc_manufacturer == 'DELL' and pc_model == ''
