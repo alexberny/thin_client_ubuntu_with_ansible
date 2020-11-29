@@ -19,7 +19,7 @@ then
     do
       newhost=$(zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" --entry-text "$hostn")
     done
-    pkexec bash -c 'sed -i "s/$1/$2/g" /etc/hosts; sed -i "s/$1/$2/g" /etc/hostname; reboot' $hostn $newhost
+    pkexec bash -c 'sed -i "s/$0/$1/g" /etc/hosts; sed -i "s/$0/$1/g" /etc/hostname; reboot' $hostn $newhost
     # zenity --notification --window-icon="info" --text="Nuovo hostname inserito!" 
     # pkexec reboot
   done
