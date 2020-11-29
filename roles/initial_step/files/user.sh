@@ -11,17 +11,17 @@ if [ ! -f "~/.maintenance_mode" ];
 then
 
   ##### set new hostname if hostname is set to default
-  while [ $(hostname) = "thin" ];
+  hostn=$(hostname)
+  while [ $hostn = "thin" ];
   do
-    # newhost=""
-    # while [ -z $newhost ];
-    # do
-    #   newhost=$(zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" --entry-text "$hostn")
-    # done
-    # pkexec bash -c 'sed -i "s/$hostn/$newhost/g" /etc/hosts; sed -i "s/$hostn/$newhost/g" /etc/hostname'
+    newhost=""
+    while [ -z $newhost ];
+    do
+      newhost=$(zenity --entry --title="Inserisci il nuovo hostname" --text="Hostname non settato, inserisci il nuovo hostname" --entry-text "$hostn")
+    done
+    pkexec bash -c 'sed -i "s/$1/$2/g" /etc/hosts; sed -i "s/$1/$2/g" /etc/hostname, reboot' $hostn $newhost
     # zenity --notification --window-icon="info" --text="Nuovo hostname inserito!" 
     # pkexec reboot
-    pkexec changehostname.sh
   done
 
   while :
