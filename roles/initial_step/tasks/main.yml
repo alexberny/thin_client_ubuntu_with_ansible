@@ -41,7 +41,7 @@
     path: "{{ item.path }}"
     regexp: "{{ item.regex }}"
     replace: "{{ item.replace }}"
-  with_items:
+  loop:
     - { path: '/etc/cups/cups-browsed.conf', regex: 'BrowseRemoteProtocols dnssd cups', replace: 'BrowseRemoteProtocols none'}
     - { path: '/etc/avahi/avahi-daemon.conf', regex: 'use-ipv4=yes', replace: 'use-ipv4=no'}
     - { path: '/etc/avahi/avahi-daemon.conf', regex: 'use-ipv6=yes', replace: 'use-ipv6=no'}
@@ -188,5 +188,5 @@
     regex: "{{ item.regex }}"
     line: "{{ item.line }}"
   loop:
-    - "{{ regex: '^options snd-hda-intel model=dell-headset-multi$', line: 'options snd-hda-intel model=dell-headset-multi'}}"
+    - { regex: '^options snd-hda-intel model=dell-headset-multi$', line: 'options snd-hda-intel model=dell-headset-multi'}
   when: pc_manufacturer == 'DELL' and pc_model == ''
