@@ -108,9 +108,9 @@
     path: /etc/gdm3/custom.conf
     regexp: "{{ item.regex }}"
     replace: "{{ item.replace }}"
-  with_items:
-  - "{{ regex: '# AutomaticLoginEnabled', replace: 'AutomaticLoginEnabled'}}"
-  - "{{ regex: '# AutomaticLogin = user1', replace: 'AutomaticLogin = user'}}"
+  loop:
+    - { regex: '# AutomaticLoginEnabled', replace: 'AutomaticLoginEnabled' }
+    - { regex: '# AutomaticLogin = user1', replace: 'AutomaticLogin = user' }
 
 - name: Dconf vino server /org/gnome/desktop/remote-access/authentication-methods
   dconf:
