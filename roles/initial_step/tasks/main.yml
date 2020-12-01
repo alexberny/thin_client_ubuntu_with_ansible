@@ -133,34 +133,34 @@
     - { src: '../files/user.sh', dst: '~/user.sh'}
     # - { src: '../files/changehostname.sh', dst: '~/changehostname.sh'}
   
-# - name: Create .config/systemd/user directory if not exist
-#   file:
-#     path: ~/.config/systemd/user
-#     state: directory 
-#     recurse: yes
-    
-# - name: Copy start script
-#   copy:
-#     src: ../files/autorun_user.service
-#     dest: ~/.config/systemd/user
-
-# - name: Enable user start script
-#   systemd:
-#     name: autorun_user.service
-#     scope: user
-#     state: stoppped
-#     enabled: yes
-
-- name: Create .config/autostart
+- name: Create .config/systemd/user directory if not exist
   file:
-    path: ~/.config/autostart
-    state: directory
+    path: ~/.config/systemd/user
+    state: directory 
     recurse: yes
-
-- name: Copy autostart script
+    
+- name: Copy start script
   copy:
-    src: ../files/user.desktop
-    dest: ~/.config/autostart
+    src: ../files/autorun_user.service
+    dest: ~/.config/systemd/user
+
+- name: Enable user start script
+  systemd:
+    name: autorun_user.service
+    scope: user
+    state: stopped
+    enabled: yes
+
+# - name: Create .config/autostart
+#   file:
+#     path: ~/.config/autostart
+#     state: directory
+#     recurse: yes
+
+# - name: Copy autostart script
+#   copy:
+#     src: ../files/user.desktop
+#     dest: ~/.config/autostart
 
 - name: Copy Picture directory
   copy:
