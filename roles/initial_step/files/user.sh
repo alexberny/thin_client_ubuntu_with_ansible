@@ -46,15 +46,21 @@ then
         fi
       fi
     else
-      # reset condition
-      pkill -9 pqiv
-      showed_loading=false
-      a=0
       # set current active interface for vino
       eths_uuid=$(nmcli -t -f uuid,type c s --active | grep 802 | awk -F  ":" '{ print "'\''" $1 "'\''" }' | paste -s -d, -)
       gsettings set org.gnome.settings-daemon.plugins.sharing.service:/org/gnome/settings-daemon/plugins/sharing/vino-server/ enabled-connections "[ $eths_uuid ]"
 
-      vmware-view --nomenubar
+      vmware-view --nomenubar &
+      VMWARE_PID=$!
+      
+      # reset condition
+      sleep 10
+      pkill -9 pqiv
+      showed_loading=false
+      a=0
+
+      wait
+
     fi
     sleep 15
   done
