@@ -78,30 +78,25 @@
     key: '/org/gnome/desktop/remote-access/require-encryption'
     value: "false"
 
+- name: Dconf vino server /org/gnome/desktop/remote-access/prompt-enabled
+  dconf:
+    key: '/org/gnome/desktop/remote-access/prompt-enabled'
+    value: "true"
+
 - name: Dconf locksreen /org/gnome/desktop/session/idle-delay
   dconf:
     key: '/org/gnome/desktop/session/idle-delay'
     value: "uint32 0"
 
-- name: Dconf disable notification /org/gnome/desktop/notifications/show-banners
-  dconf:
-    key: '/org/gnome/desktop/notifications/show-banners'
-    value: "false"
+# - name: Dconf disable notification /org/gnome/desktop/notifications/show-banners
+#   dconf:
+#     key: '/org/gnome/desktop/notifications/show-banners'
+#     value: "false"
 
 - name: Dconf sharing org.gnome.settings-daemon.plugins.sharing.active
   dconf:
     key: '/org.gnome.settings-daemon.plugins.sharing.active'
     value: "true"
-
-- name: Dconf vino server /org/gnome/desktop/remote-access/require-encription
-  dconf:
-    key: '/org/gnome/desktop/remote-access/require-encription'
-    value: "false"
-
-- name: Dconf vino server /org/gnome/desktop/remote-access/prompt-enabled
-  dconf:
-    key: '/org/gnome/desktop/remote-access/prompt-enabled'
-    value: "false"
 
 - name: Autologin for user
   become: true
