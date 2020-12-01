@@ -29,6 +29,7 @@
       - sane
       - vim
       - libvdpau-va-gl1
+      - pqiv
 
 - name: Set default hostname
   become: true
