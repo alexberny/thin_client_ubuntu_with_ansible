@@ -26,23 +26,23 @@ then
 
   while :
   do
+    if ! $showed_loading;
+    then
+      pqiv -t -i -f  /home/user/Picture/REV.gif &
+      showed_loading=true
+    fi
     # get active interface
     eths_dev=$(nmcli -t -f uuid,type,device c s --active | grep 802 | awk -F  ":" '{ print $3 }' | paste -s -d, -)
-    if [ -z "$eths_dev" ]
-    then
-      if [ ! "$showed_loading" ]
-      then
-        pqiv -t -i -f  /home/user/Pictures/REV.gif &
-        showed_loading = true
-      fi
+    if [ -z "$eths_dev" ];
+    then     
       ((a+=1))
       if [ $a -ge 4 ]
       then
-        if [ "$showed_alert" = 0 ]
+        if [ "$showed_alert" = 0 ];
         then
-          showed_alert = 1
+          showed_alert=1
           zenity --error --width=200 --text "Errore di rete, contattare l'ufficio ICT"
-          showed_alert = 0
+          showed_alert=0
         fi
       fi
     else
