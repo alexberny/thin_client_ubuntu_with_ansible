@@ -98,6 +98,26 @@
     key: '/org.gnome.settings-daemon.plugins.sharing.active'
     value: "true"
 
+- name: Dconf sharing org.gnome.shell.extensions.dash-to-dock.autohide
+  dconf:
+    key: '/org.gnome.shell.extensions.dash-to-dock.autohide'
+    value: "false"
+
+- name: Dconf sharing org.gnome.shell.extensions.dash-to-dock.dock-fixed
+  dconf:
+    key: '/org.gnome.shell.extensions.dash-to-dock.dock-fixed'
+    value: "false"
+
+- name: Dconf sharing org.gnome.shell.extensions.desktop-icons.show-home
+  dconf:
+    key: '/org.gnome.shell.extensions.desktop-icons.show-home'
+    value: "false"
+
+- name: Dconf sharing org.gnome.shell.extensions.desktop-icons.show-trash
+  dconf:
+    key: '/org.gnome.shell.extensions.desktop-icons.show-trash'
+    value: "false"
+
 - name: Autologin for user
   become: yes 
   replace:
