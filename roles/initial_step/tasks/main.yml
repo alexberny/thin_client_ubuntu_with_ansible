@@ -121,7 +121,7 @@
 - name: Dconf sharing org.gnome.desktop.background.picture-uri
   dconf:
     key: '/org.gnome.desktop.background.picture-uri'
-    value: "file:///home/user/Picture/rev_sfondo.png"
+    value: "'file:///home/user/Picture/rev_sfondo.png'"
 
 - name: Autologin for user
   become: yes 
