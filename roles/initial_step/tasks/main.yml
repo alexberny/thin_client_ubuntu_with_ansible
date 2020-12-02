@@ -100,27 +100,27 @@
 
 - name: Dconf sharing org.gnome.shell.extensions.dash-to-dock.autohide
   dconf:
-    key: '/org.gnome.shell.extensions.dash-to-dock.autohide'
+    key: '/org/gnome/shell/extensions/dash-to-dock/autohide'
     value: "false"
 
 - name: Dconf sharing org.gnome.shell.extensions.dash-to-dock.dock-fixed
   dconf:
-    key: '/org.gnome.shell.extensions.dash-to-dock.dock-fixed'
+    key: '/org/gnome/shell/extensions/dash-to-dock/dock-fixed'
     value: "false"
 
-- name: Dconf sharing org.gnome.shell.extensions.desktop-icons.show-home
+- name: Dconf sharing org/gnome.shell.extensions.desktop-icons.show-home
   dconf:
-    key: '/org.gnome.shell.extensions.desktop-icons.show-home'
+    key: '/org/gnome/shell/extensions/dash-to-dock/show-home'
     value: "false"
 
-- name: Dconf sharing org.gnome.shell.extensions.desktop-icons.show-trash
+- name: Dconf sharing org/gnome.shell.extensions.desktop-icons.show-trash
   dconf:
-    key: '/org.gnome.shell.extensions.desktop-icons.show-trash'
+    key: '/org/gnome/shell/extensions/dash-to-dock/show-trash'
     value: "false"
 
 - name: Dconf sharing org.gnome.desktop.background.picture-uri
   dconf:
-    key: '/org.gnome.desktop.background.picture-uri'
+    key: '/org/gnome/shell/extensions/dash-to-dock/picture-uri'
     value: "'file:///home/user/Picture/rev_sfondo.png'"
 
 - name: Autologin for user
@@ -221,4 +221,4 @@
     line: "{{ item.line }}"
   loop:
     - { regex: '^options snd-hda-intel model=dell-headset-multi$', line: '^options snd-hda-intel model=dell-headset-multi'}
-  when: pc_manufacturer == 'DELL' and pc_model == ''
+  when: pc_manufacturer == 'DELL' and pc_model == 'OptiPlex 3020M'
