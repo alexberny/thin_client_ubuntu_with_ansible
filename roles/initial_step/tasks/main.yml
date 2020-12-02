@@ -98,17 +98,17 @@
     key: '/org/gnome/settings-daemon/plugins/sharing/active'
     value: "true"
 
-- name: Dconf sharing org.gnome.shell.extensions.dash-to-dock.autohide
+- name: Dconf sharing /org/gnome/shell/extensions/dash-to-dock/autohide
   dconf:
     key: '/org/gnome/shell/extensions/dash-to-dock/autohide'
     value: "false"
 
-- name: Dconf sharing org.gnome.shell.extensions.dash-to-dock.dock-fixed
+- name: Dconf sharing org/gnome/shell/extensions/dash-to-dock/dock-fixed
   dconf:
     key: '/org/gnome/shell/extensions/dash-to-dock/dock-fixed'
     value: "false"
 
-- name: Dconf sharing org/gnome.shell.extensions.desktop-icons.show-home
+- name: Dconf sharing /org/gnome/shell/extensions/desktop-icons/show-home
   dconf:
     key: '/org/gnome/shell/extensions/desktop-icons/show-home'
     value: "false"
@@ -120,7 +120,7 @@
 
 - name: Dconf sharing org.gnome.desktop.background.picture-uri
   dconf:
-    key: '/org/gnome/desktop/backgground/picture-uri'
+    key: '/org/gnome/desktop/background/picture-uri'
     value: "'file:///home/user/Picture/rev_sfondo.png'"
 
 - name: Autologin for user
