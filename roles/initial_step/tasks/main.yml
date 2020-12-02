@@ -231,6 +231,7 @@
     job: "/sbin/shutdown -h now"
 
 - name: add audio Combo jack for DELL pc
+  become: yes
   lineinfile:
     path: /etc/modprobe.d/alsa-base.conf
     regex: "{{ item.regex }}"
