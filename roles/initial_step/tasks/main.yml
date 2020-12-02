@@ -3,23 +3,23 @@
     var: ansible_facts
 
 - name: Run the equivalent of "apt-get update" as a separate step
-  become: true
+  become: yes 
   apt:
     update_cache: yes
 
 - name: Update all software
-  become: true
+  become: yes 
   apt:
     name: "*"
     state: latest
 
 - name: Remove dependencies that are no longer required
-  become: true
+  become: yes 
   apt:
     autoremove: yes
 
 - name: Install necessary software
-  become: true
+  become: yes 
   apt:
     pkg:
       - git
@@ -32,12 +32,12 @@
       - pqiv
 
 - name: Set default hostname
-  become: true
+  become: yes 
   hostname:
     name: thin
 
 - name: Replace conf string
-  become: true
+  become: yes 
   replace:
     path: "{{ item.path }}"
     regexp: "{{ item.regex }}"
@@ -48,7 +48,7 @@
     - { path: '/etc/avahi/avahi-daemon.conf', regex: 'use-ipv6=yes', replace: 'use-ipv6=no'}
 
 - name: Restart services
-  become: true
+  become: yes 
   systemd:
     name: "{{ item }}"
     state: restarted
@@ -99,7 +99,7 @@
     value: "true"
 
 - name: Autologin for user
-  become: true
+  become: yes 
   replace:
     path: /etc/gdm3/custom.conf
     regexp: "{{ item.regex }}"
@@ -168,18 +168,26 @@
     dest: ~/.
 
 - name: Get PC manufacturer
-  become: true
+  become: yes 
   shell: dmidecode -s system-manufacturer
   register: pc_manufacturer
 
 - name: Get PC model
-  become: true
+  become: yes 
   shell: dmidecode -s system-product-name
   register: pc_model
 
 - name: pc model
   debug:
    msg: "{{ pc_model }} {{ pc_manufacturer }}"
+
+- name: Crontab shutdown
+  become: yes
+  cron:
+    name: "sutdown"
+    minute: "0"
+    hour: "0-6,22-23"
+    job: "/sbin/shutdown -h now"
 
 - name: add audio Combo jack for DELL pc
   lineinfile:
