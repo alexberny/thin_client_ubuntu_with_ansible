@@ -136,7 +136,7 @@
 
 - name: Dconf sharing org.gnome.desktop.background.primary-color
   dconf:
-    key: '/org/gnome/desktop/background/picture-uri'
+    key: '/org/gnome/desktop/background/primary-color'
     value: "'#fff'"
 
 - name: Autologin for user
