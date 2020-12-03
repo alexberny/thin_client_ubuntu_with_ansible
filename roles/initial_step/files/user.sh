@@ -28,6 +28,7 @@ then
   do
     if ! $showed_loading;
     then
+      sleep 10
       pqiv -t -i -f  /home/user/Picture/REV.gif &
       showed_loading=true
     fi
