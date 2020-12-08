@@ -249,3 +249,6 @@
   loop:
     - { regex: '^options snd-hda-intel model=,dell-headset-multi$', line: 'options snd-hda-intel model=,dell-headset-multi'}
   when: pc_manufacturer.stdout == 'Dell Inc.' and pc_model.stdout == 'OptiPlex 3020M'
+
+  # scanner fujitsu fi-7160
+ 
