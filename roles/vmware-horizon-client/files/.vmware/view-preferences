@@ -11,7 +11,11 @@ view.allMonitors = 'TRUE'
 view.fullScreen = 'TRUE'
 view.usbAutoConnectAtStartUp = 'FALSE'
 <<<<<<< HEAD
+<<<<<<< HEAD
 view.usbAutoConnectOnInsert = 'TRUE'
+=======
+view.usbAutoConnectOnInsert = 'TRUE'
+>>>>>>> af4f34163a404a58c14610f3a4a429b968f435a5
 =======
 view.usbAutoConnectOnInsert = 'TRUE'
 >>>>>>> af4f34163a404a58c14610f3a4a429b968f435a5
