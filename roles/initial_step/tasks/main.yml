@@ -56,6 +56,16 @@
     - cups-browsed.service
     - avahi-daemon.service
 
+- name: Grub timeout
+  become: yes
+  lineinfile:
+    path: "{{ item.path }}"
+    regexp: "{{ item.regex }}"
+    line: "{{ item.replace }}"
+  loop:
+    - { path: '/etc/default/grub', regex: '^GRUB_TIMEOUT_STYLE', replace: 'GRUB_TIMEOUT_STYLE=menu'}    
+    - { path: '/etc/default/grub', regex: '^GRUB_TIMEOUT', replace: 'GRUB_TIMEOUT=0'}    
+
 - name: Dconf gnome-session-properties
   community.general.dconf:
     key: "{{ item }}"
