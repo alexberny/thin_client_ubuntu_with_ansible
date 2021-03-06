@@ -252,17 +252,17 @@
     line: "{{ item.line }}"
   loop:
     - { regex: '^options snd-hda-intel position fix=1', line: 'options snd-hda-intel position fix=1'}
-  when: pc_manufacturer.stdout == 'Dell Inc.' and pc_model.stdout == 'OptiPlex 3020M'
-
-- name: add audio Combo jack for DELL pc 2
-  become: yes
-  lineinfile:
-    path: /etc/modprobe.d/alsa-base.conf
-    regex: "{{ item.regex }}"
-    line: "{{ item.line }}"
-  loop:
     - { regex: '^options snd-hda-intel model=,dell-headset-multi$', line: 'options snd-hda-intel model=,dell-headset-multi'}
   when: pc_manufacturer.stdout == 'Dell Inc.' and pc_model.stdout == 'OptiPlex 3020M'
+
+# - name: add audio Combo jack for DELL pc 2
+#   become: yes
+#   lineinfile:
+#     path: /etc/modprobe.d/alsa-base.conf
+#     regex: "{{ item.regex }}"
+#     line: "{{ item.line }}"
+#   loop:
+#   when: pc_manufacturer.stdout == 'Dell Inc.' and pc_model.stdout == 'OptiPlex 3020M'
 
   # scanner fujitsu fi-7160
  
