@@ -1,4 +1,4 @@
-# thin_client_ubunut_with_ansible
+# thin_client_ubuntu_with_ansible
 
 Install a Vmware Thin Client based on Ubuntu
 
