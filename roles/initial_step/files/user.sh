@@ -7,7 +7,7 @@ showed_alert=0
 showed_loading=false
 
 # if not exists .maintenance_mode file then execute
-if [ ! -f "~/.maintenance_mode" ];
+if [ ! -f ".maintenance_mode" ];
 then
 
   ##### set new hostname if hostname is set to default
