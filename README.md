@@ -8,5 +8,5 @@ or
 
 ```wget https://raw.githubusercontent.com/alexberny/thin_client_ubuntu_with_ansible/main/install.sh -O install.sh && bash install.sh && rm install.sh```
 
-## Default user
+##Default user
 Create a default user with name `user'
