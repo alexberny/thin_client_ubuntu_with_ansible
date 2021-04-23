@@ -1,1 +1,3 @@
-viewusb.ExcludeVidPid = "Vid-04c5_Pid-132e;Vid-090c_Pid-1000"
+viewusb.ExcludeVidPid = "Vid-090c_Pid-1000"
+viewusb.IncludeVidPid = "Vid-04c5_Pid-132e"
+viewusb.IncludeFamily = "audio"
