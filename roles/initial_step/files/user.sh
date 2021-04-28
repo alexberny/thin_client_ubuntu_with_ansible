@@ -51,8 +51,8 @@ then
       eths_uuid=$(nmcli -t -f uuid,type c s --active | grep 802 | awk -F  ":" '{ print "'\''" $1 "'\''" }' | paste -s -d, -)
       gsettings set org.gnome.settings-daemon.plugins.sharing.service:/org/gnome/settings-daemon/plugins/sharing/vino-server/ enabled-connections "[ $eths_uuid ]"
 
-      #vmware-view --nomenubar &
-      vmware-view &
+      vmware-view --nomenubar &
+      #vmware-view &
       VMWARE_PID=$!
       
       # reset condition
